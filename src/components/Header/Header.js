@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const {name} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -40,7 +40,7 @@ const Header = () => {
                 <Link to="/register">Register</Link>
               </li>
               <li>
-                <a>{name?.name}</a>
+                <Link>{user?.diplayName}</Link>
               </li>
             </ul>
           </div>
@@ -70,23 +70,28 @@ const Header = () => {
         <div className="navbar-end">
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li tabIndex={0}>
-                <Link to="/register">Register</Link>
-              </li>
-              <li>
-                <Link to="/">{name.name}</Link>
-              </li>
+              {user.uid && user.displayName ? (
+                <li>
+                  <Link to="/">{user?.displayName}</Link>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li tabIndex={0}>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
-                src="https://placeimg.com/80/80/people"
+                src={user?.photoURL}
                 alt="profilePicture"
-                title={name.name}
+                title={user?.displayName}
               />
             </div>
           </label>
