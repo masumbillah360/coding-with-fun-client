@@ -27,36 +27,26 @@ const Header = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>Item 1</a>
+                  <a>Courses</a>
                 </li>
                 <li tabIndex={0}>
-                  <a className="justify-between">
-                    Parent
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg>
-                  </a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
+                  <a>FAQ</a>
                 </li>
                 <li>
-                  <a>Item 3</a>
+                  <a>Blog</a>
+                </li>
+                <li>
+                  <a>Login</a>
+                </li>
+                <li tabIndex={0}>
+                  <a>Register</a>
+                </li>
+                <li>
+                  <a>User Name</a>
                 </li>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">
+            <a className="btn btn-ghost normal-case text-xl hidden lg:block">
               <img src="logo.jpg" className="w-full h-full rounded-lg" alt="" />
             </a>
             <a className="btn btn-ghost normal-case text-xl">Coding With Fun</a>
@@ -75,17 +65,19 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <ul className="menu menu-horizontal p-0">
-              <li>
-                <a>Login</a>
-              </li>
-              <li tabIndex={0}>
-                <a>Register</a>
-              </li>
-              <li>
-                <a>User Name</a>
-              </li>
-            </ul>
+            <div className="hidden lg:block">
+              <ul className="menu menu-horizontal p-0">
+                <li>
+                  <a>Login</a>
+                </li>
+                <li tabIndex={0}>
+                  <a>Register</a>
+                </li>
+                <li>
+                  <a>User Name</a>
+                </li>
+              </ul>
+            </div>
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
