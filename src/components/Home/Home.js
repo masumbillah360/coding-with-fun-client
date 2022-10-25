@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
       <div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen">
           <div className="hero-content grid lg:grid-cols-5 justify-center">
             <img
               src="banner.jpg"
