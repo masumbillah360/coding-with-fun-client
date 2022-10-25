@@ -7,7 +7,7 @@ const Home = () => {
           <div className="hero-content grid lg:grid-cols-5 justify-center">
             <img
               src="banner.jpg"
-              className="w-full h-96 rounded-lg shadow-2xl col-span-12 lg:col-span-2"
+              className="rounded-lg shadow-2xl md:col-span-12 lg:col-span-2"
               alt="HeaderPhoto"
             />
             <div className='md:col-span-12 lg:col-span-3'>
