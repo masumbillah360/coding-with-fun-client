@@ -35,7 +35,7 @@ const Header = () => {
                 <Link to="/login">Login</Link>
               </li>
               <li tabIndex={0}>
-                <a>Register</a>
+                <Link to="/register">Register</Link>
               </li>
               <li>
                 <a>User Name</a>
@@ -72,7 +72,7 @@ const Header = () => {
                 <Link to="/login">Login</Link>
               </li>
               <li tabIndex={0}>
-                <a>Register</a>
+                <Link to="/register">Register</Link>
               </li>
               <li>
                 <a>User Name</a>
