@@ -9,18 +9,13 @@ const Header = () => {
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg
+                  className="swap-off fill-current"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 512 512"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
+                  <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                 </svg>
               </label>
               <ul
@@ -31,7 +26,7 @@ const Header = () => {
                   <Link to="/courses">Courses</Link>
                 </li>
                 <li tabIndex={0}>
-                  <a>FAQ</a>
+                  <Link to="/faq">FAQ</Link>
                 </li>
                 <li>
                   <a>Blog</a>
@@ -47,10 +42,15 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <Link to="/" className="btn btn-ghost normal-case text-xl hidden lg:block">
+            <Link
+              to="/"
+              className="btn btn-ghost normal-case text-xl hidden lg:block"
+            >
               <img src="logo.jpg" className="w-full h-full rounded-lg" alt="" />
             </Link>
-            <Link to="/" className="btn btn-ghost normal-case text-xl">Coding With Fun</Link>
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
+              Coding With Fun
+            </Link>
           </div>
           <div className="navbar hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
@@ -58,7 +58,7 @@ const Header = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               <li tabIndex={0}>
-                <a>FAQ</a>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
                 <a>Blog</a>
