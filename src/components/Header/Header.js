@@ -32,7 +32,7 @@ const Header = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <a>Login</a>
+                <Link to="/login">Login</Link>
               </li>
               <li tabIndex={0}>
                 <a>Register</a>
@@ -69,7 +69,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <a>Login</a>
+                <Link to="/login">Login</Link>
               </li>
               <li tabIndex={0}>
                 <a>Register</a>
