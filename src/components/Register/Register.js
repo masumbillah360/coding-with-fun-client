@@ -2,12 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
+        console.log(name, photo, email, password);
+    }
   return (
     <div>
       <div className="hero min-h-auto bg-base-100">
         <div className="hero-content grid md:grid-cols-5 md:gap-6 lg:gap-12">
           <div className="card shadow-2xl bg-base-100 col-span-12 md:col-span-3 order-2 sm:order-1">
-            <form className="card-body">
+            <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>

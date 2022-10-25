@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const {name} = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -38,7 +40,7 @@ const Header = () => {
                 <Link to="/register">Register</Link>
               </li>
               <li>
-                <a>User Name</a>
+                <a>{name?.name}</a>
               </li>
             </ul>
           </div>
@@ -75,7 +77,7 @@ const Header = () => {
                 <Link to="/register">Register</Link>
               </li>
               <li>
-                <a>User Name</a>
+                <Link to="/">{name.name}</Link>
               </li>
             </ul>
           </div>
@@ -84,6 +86,7 @@ const Header = () => {
               <img
                 src="https://placeimg.com/80/80/people"
                 alt="profilePicture"
+                title={name.name}
               />
             </div>
           </label>
