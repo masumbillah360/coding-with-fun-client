@@ -1,44 +1,57 @@
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-    const {setUser} = useContext(AuthContext);
-    const {providerLogin} = useContext(AuthContext);
-    const googleProvider = new GoogleAuthProvider();
-    const facebookProvider = new FacebookAuthProvider();
-    const githubProvider = new GithubAuthProvider();
+  const { providerLogin, setUser, loginUser } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
-    const handleGogoleLogin = () =>{
-        console.log("clicked");
-        providerLogin(googleProvider)
-        .then(result=> setUser(result.user))
-        .catch(err=> console.log(err));
-        
-    }
-    const handleFacebookLogin = () =>{
-        providerLogin(facebookProvider)
-        .then(result=>console.log(result.user))
-        .catch(err=>console.log(err));
-    }
-    const handleGithubLogin = () =>{
-        providerLogin(githubProvider)
-        .then(result=>console.log(result.user))
-        .catch(err=>console.log(err));
-    }
+  const handleGogoleLogin = () => {
+    console.log("clicked");
+    providerLogin(googleProvider)
+      .then((result) => setUser(result.user))
+      .catch((err) => console.log(err));
+  };
+  const handleFacebookLogin = () => {
+    providerLogin(facebookProvider)
+      .then((result) => setUser(result.user))
+      .catch((err) => console.log(err));
+  };
+  const handleGithubLogin = () => {
+    providerLogin(githubProvider)
+      .then((result) => setUser(result.user))
+      .catch((err) => console.log(err));
+  };
+
+  const loginEmailPassword = (event)=>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+    .then((result) => setUser(result.user))
+    .catch((err) => console.log(err));
+  }
   return (
     <div>
       <div className="hero min-h-auto bg-base-100">
         <div className="hero-content grid grid-cols-12 md:gap-6 lg:gap-12">
           <div className="card shadow-2xl bg-base-100 col-span-12 md:col-span-6 ml-auto order-2 sm:order-1">
-            <div className="card-body">
+            <form onSubmit={loginEmailPassword} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
+                  name="email"
                   placeholder="Email address"
                   className="input input-bordered"
                 />
@@ -48,7 +61,8 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
@@ -58,15 +72,15 @@ const Login = () => {
                   <p className="label-text link link-hover">
                     Do not have an account?
                     <span className="ml-5 underline tex-primary font-bold">
-                      Please Register
+                      Please register
                     </span>
                   </p>
                 </Link>
               </label>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn btn-primary">Login</button>
               </div>
-            </div>
+            </form>
           </div>
 
           <div className="col-span-12 md:col-span-6 mr-auto order-1 sm:order-2">
@@ -74,13 +88,22 @@ const Login = () => {
               Please Login!
             </h1>
             <div className="">
-              <button onClick={handleGogoleLogin} className="btn bg-red-600 mx-auto md:mx-0 block mb-3">
+              <button
+                onClick={handleGogoleLogin}
+                className="btn bg-red-600 mx-auto md:mx-0 block mb-3"
+              >
                 Login With Google
               </button>
-              <button onClick={handleGithubLogin} className="btn block mb-3 mx-auto md:mx-0">
+              <button
+                onClick={handleGithubLogin}
+                className="btn block mb-3 mx-auto md:mx-0"
+              >
                 Login With Github
               </button>
-              <button onClick={handleFacebookLogin} className="btn bg-blue-500 block mx-auto md:mx-0">
+              <button
+                onClick={handleFacebookLogin}
+                className="btn bg-blue-500 block mx-auto md:mx-0"
+              >
                 Login With FaceBook
               </button>
             </div>

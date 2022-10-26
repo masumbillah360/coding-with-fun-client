@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser, signOutUser } = useContext(AuthContext);
+
+  const handleLogOut = () => { 
+    signOutUser()
+    .then(()=>{setUser({})})
+    .catch((err)=>{console.log(err)});
+  }
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -70,10 +76,15 @@ const Header = () => {
         <div className="navbar-end">
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
-              {user.uid && user.displayName ? (
-                <li>
-                  <Link to="/">{user?.displayName}</Link>
-                </li>
+              {user.uid ? (
+                <>
+                  <li>
+                    <Link to="/">{user?.displayName}</Link>
+                  </li>
+                  <li>
+                    <Link to="/login"><button onClick={handleLogOut}>log out</button></Link>
+                  </li>
+                </>
               ) : (
                 <>
                   <li>
@@ -88,11 +99,15 @@ const Header = () => {
           </div>
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img
-                src={user?.photoURL}
-                alt="profilePicture"
-                title={user?.displayName}
-              />
+              {user.uid && user.displayName ? (
+                <img
+                  src={user?.photoURL}
+                  alt="profilePicture"
+                  title={user?.displayName}
+                />
+              ) : (
+                <img src="" alt="profilePicture" />
+              )}
             </div>
           </label>
         </div>

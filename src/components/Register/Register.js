@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-    const handleSubmit = (event)=>{
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const photo = form.photo.value;
-        const password = form.password.value;
-        console.log(name, photo, email, password);
-    }
+  const { createNewUser, setUser } = useContext(AuthContext);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    createNewUser(email, password)
+      .then((result) => {
+        result.user.displayName = name;
+        result.user.photoURL = photo;
+        setUser(result.user);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div className="hero min-h-auto bg-base-100">
@@ -57,7 +65,7 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                name="password"
+                  name="password"
                   type="password"
                   placeholder="password"
                   required
@@ -75,7 +83,11 @@ const Register = () => {
                 </Link>
               </label>
               <div className="form-control mt-6">
-                <input type="submit" className="btn btn-primary" value="Register"></input>
+                <input
+                  type="submit"
+                  className="btn btn-primary"
+                  value="Register"
+                ></input>
               </div>
             </form>
           </div>
