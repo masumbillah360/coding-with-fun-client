@@ -54,7 +54,7 @@ const Header = () => {
             to="/"
             className="btn btn-ghost normal-case text-xl hidden lg:block"
           >
-            <img src="logo.jpg" className="w-full h-full rounded-lg" alt="" />
+            <img src="logo.png" className="w-full h-full rounded-lg" alt="" />
           </Link>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             Coding With Fun
@@ -106,7 +106,7 @@ const Header = () => {
                   title={user?.displayName}
                 />
               ) : (
-                <img src="" alt="profilePicture" />
+                <img src="profile_pic.jpg" alt="profilePicture" />
               )}
             </div>
           </label>
