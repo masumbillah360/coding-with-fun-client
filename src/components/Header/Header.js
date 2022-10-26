@@ -50,14 +50,11 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link
-            to="/"
-            className="btn btn-ghost normal-case text-xl hidden lg:block"
-          >
+          <Link to="/" className="btn btn-ghost normal-case text-xl ">
             <img src="logo.png" className="w-full h-full rounded-lg" alt="" />
           </Link>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            Coding With Fun
+          <Link to="/" className="hidden lg:block">
+            CodingWithFun
           </Link>
         </div>
         <div className="navbar hidden lg:flex">
@@ -82,7 +79,9 @@ const Header = () => {
                     <Link to="/">{user?.displayName}</Link>
                   </li>
                   <li>
-                    <Link to="/login"><button onClick={handleLogOut}>log out</button></Link>
+                    <Link to="/login">
+                      <button onClick={handleLogOut}>log out</button>
+                    </Link>
                   </li>
                 </>
               ) : (
@@ -97,19 +96,28 @@ const Header = () => {
               )}
             </ul>
           </div>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              {user.uid && user.displayName ? (
-                <img
-                  src={user?.photoURL}
-                  alt="profilePicture"
-                  title={user?.displayName}
-                />
-              ) : (
-                <img src="profile_pic.jpg" alt="profilePicture" />
-              )}
-            </div>
-          </label>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} alt="profilePhoto" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <Link to='/profile' className="justify-between">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                  <button onClick={handleLogOut}>log out</button>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
