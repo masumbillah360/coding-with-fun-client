@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import Category from '../Category/Category';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Categories = () => {
-    const [categories, setCategories]   = useState();
-    useEffect(()=>{
-        fetch("https://fun-coding-server.vercel.app/categories")
-        .then(res=>res.json())
-        .then(data =>setCategories(data));
-    },[]);
-    return (
-        <div>
-            {
-                categories?.map(category => <Category key={category.id} category={category}></Category> )
-            }
-        </div>
-    );
+const Categories = ({ course }) => {
+  return (
+    <div>
+      <ul className="menu bg-base-100 rounded-box p-1">
+        <li>
+          <Link to={`/course/${course.id}`} className="w-full flex justify-center items-center">
+            {course.name}
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
 };
 
 export default Categories;

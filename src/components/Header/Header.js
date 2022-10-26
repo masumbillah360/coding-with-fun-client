@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl ">
-            <img src="logo.png" className="w-full h-full rounded-lg" alt="" />
+            <img src={logo} className="w-full h-full rounded-lg" alt="" />
           </Link>
           <Link to="/" className="hidden lg:block">
             CodingWithFun
@@ -73,15 +74,10 @@ const Header = () => {
         <div className="navbar-end">
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
-              {user.uid ? (
+              {user?.uid ? (
                 <>
                   <li>
-                    <Link to="/">{user?.displayName}</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">
-                      <button onClick={handleLogOut}>log out</button>
-                    </Link>
+                    <Link to="/profile">{user?.displayName}</Link>
                   </li>
                 </>
               ) : (
@@ -99,7 +95,7 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user.photoURL} alt="profilePhoto" />
+                <img src={user?.photoURL} alt="profilePhoto" title={user?.displayName} />
               </div>
             </label>
             <ul
@@ -109,6 +105,16 @@ const Header = () => {
               <li>
                 <Link to='/profile' className="justify-between">
                   Profile
+                </Link>
+              </li>
+              <li>
+                <Link to='/Courses' className="justify-between">
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link to='/Blog' className="justify-between">
+                  Blog
                 </Link>
               </li>
               <li>
