@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createNewUser, setUser } = useContext(AuthContext);
+  const { createNewUser, setUser , updateUserProfile } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,12 +13,24 @@ const Register = () => {
     const password = form.password.value;
     createNewUser(email, password)
       .then((result) => {
-        result.user.displayName = name;
-        result.user.photoURL = photo;
+        handleUpdateUserProfile(name, photo);
         setUser(result.user);
+        
       })
       .catch((err) => console.log(err));
   };
+
+  const handleUpdateUserProfile =(name, photo)=> {
+    const profile = {
+      displayName: name,
+      photoURL: photo
+    }
+      updateUserProfile(profile)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch(err=>console.log(err));
+   }
   return (
     <div>
       <div className="hero min-h-auto bg-base-100">
