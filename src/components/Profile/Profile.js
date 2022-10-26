@@ -18,7 +18,7 @@ const Profile = () => {
               <p className="mt-2">ID : {uid}</p>
               <p className="mt-2">Verified : {emailVerified?"Verified" : "No Verified"}</p>
               <p className="mt-2">Creation Time : {metadata.creationTime}</p>
-              <Link to="/" className="btn btn-primary font-bold">Home</Link>
+              <Link to="/" className="btn btn-primary mt-3">Home</Link>
             </div>
           </div>
         </div>
