@@ -2,7 +2,7 @@ import React from 'react';
 
 const FrequintlyAQ = () => {
     return (
-      <div>
+      <div className='min-h-screen'>
         <div className="collapse collapse-arrow mb-3 rounded">
           <input type="checkbox" className="peer" />
           <div className="collapse-title bg-base-200 text-base-content peer-checked:bg-accent-focus peer-checked:text-primary-content font-bold">

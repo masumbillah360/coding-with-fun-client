@@ -8,7 +8,7 @@ const Profile = () => {
     const {displayName, email, phoneNumber,photoURL, uid, emailVerified, metadata} = user;
     return (
       <div>
-        <div className="hero bg-base-100">
+        <div className="hero min-h-screen">
           <div className="hero-content text-center">
             <div className="max-w-md">
             <img className='rounded-full mx-auto w-48 h-48' src={photoURL} alt="profilePhoto" />

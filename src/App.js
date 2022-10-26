@@ -1,3 +1,4 @@
+import { useContext} from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Blogs from "./components/Blogs/Blogs";
@@ -9,9 +10,11 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
+import { ThemeContext } from "./contexts/ThemeProvider/ThemeProvider";
 import Layout from "./Main/Layout";
 
 function App() {
+  const {dark} = useContext(ThemeContext);
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -26,7 +29,8 @@ function App() {
         },
         {
           path: "/course/:id",
-          loader: ({ params }) => fetch(`https://fun-coding-server.vercel.app/courses/${params.id}`),
+          loader: ({ params }) =>
+            fetch(`https://fun-coding-server.vercel.app/courses/${params.id}`),
           element: <CourseDetails></CourseDetails>,
         },
         { path: "/faq", element: <FrequintlyAQ></FrequintlyAQ> },
@@ -38,7 +42,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={routes}></RouterProvider>;
+  return (
+    <div data-theme={dark && 'dark'}>
+      <RouterProvider router={routes}></RouterProvider>;
+    </div>
+  );
 }
 
 export default App;

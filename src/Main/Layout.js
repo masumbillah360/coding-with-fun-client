@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 
 const Layout = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto dark">
       <Header></Header>
       <Outlet></Outlet>
     </div>

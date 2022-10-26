@@ -1,19 +1,29 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import logo from '../../assets/logo.png';
+import { ThemeContext } from "../../contexts/ThemeProvider/ThemeProvider";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
+  const {dark, setDark} = useContext(ThemeContext);
 
-  const handleLogOut = () => { 
+  const handleLogOut = () => {
     signOutUser()
-    .then(()=>{setUser({})})
-    .catch((err)=>{console.log(err)});
+      .then(() => {
+        setUser({});
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const handleTheme = ()=>{
+    setDark(!dark);
+    console.log(dark);
   }
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar dark">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,6 +84,11 @@ const Header = () => {
         <div className="navbar-end">
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
+              <label className="swap swap-rotate">
+                <button onClick={handleTheme} type="checkbox">
+                  {dark ? 'Light' : 'Dark'}
+                </button>
+              </label>
               {user?.uid ? (
                 <>
                   <li>
@@ -95,7 +110,11 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user?.photoURL} alt="profilePhoto" title={user?.displayName} />
+                <img
+                  src={user?.photoURL}
+                  alt="profilePhoto"
+                  title={user?.displayName}
+                />
               </div>
             </label>
             <ul
@@ -103,17 +122,17 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to='/profile' className="justify-between">
+                <Link to="/profile" className="justify-between">
                   Profile
                 </Link>
               </li>
               <li>
-                <Link to='/Courses' className="justify-between">
+                <Link to="/Courses" className="justify-between">
                   Courses
                 </Link>
               </li>
               <li>
-                <Link to='/Blog' className="justify-between">
+                <Link to="/Blog" className="justify-between">
                   Blog
                 </Link>
               </li>

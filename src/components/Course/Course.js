@@ -7,7 +7,7 @@ const Course = ({course}) => {
     // console.log(description);
     return (
       <div>
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-base-100 dark:bg-slate-600 shadow-xl">
           <figure>
             <img className="h-48 w-full" src={picture} alt={name + "photo"} />
           </figure>
