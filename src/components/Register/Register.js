@@ -33,7 +33,7 @@ const Register = () => {
    }
   return (
     <div>
-      <div className="hero min-h-auto bg-base-100">
+      <div className="hero min-h-screen bg-base-100">
         <div className="hero-content grid md:grid-cols-5 md:gap-6 lg:gap-12">
           <div className="card shadow-2xl bg-base-100 col-span-12 md:col-span-3 order-2 sm:order-1">
             <form onSubmit={handleSubmit} className="card-body">

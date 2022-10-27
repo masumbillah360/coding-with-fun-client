@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
+
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
@@ -82,6 +83,9 @@ const CourseDetails = () => {
             />
           )}
         </div>
+        <Link to="/premium" className="btn btn-primary btn-sm mt-4">
+          Get Primium Access
+        </Link>
         <p>
           {published_date} {balance}
         </p>

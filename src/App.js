@@ -1,50 +1,13 @@
 import { useContext} from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import Blogs from "./components/Blogs/Blogs";
-import Courses from "./components/Coureses/Courses";
-import CourseDetails from "./components/CourseDetails/CourseDetails";
-import ErrorPage from "./components/ErrorPage/ErrorPage";
-import FrequintlyAQ from "./components/FrequintylAQ/FrequintlyAQ";
-import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
-import Profile from "./components/Profile/Profile";
-import Register from "./components/Register/Register";
-import { ThemeContext } from "./contexts/ThemeProvider/ThemeProvider";
-import Layout from "./Main/Layout";
-
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/Router/Router";
+import {ThemeContext} from "./contexts/ThemeProvider/ThemeProvider";
 function App() {
   const {dark} = useContext(ThemeContext);
-  const routes = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout></Layout>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        { path: "/", element: <Home></Home> },
-        {
-          path: "/courses",
-          loader: () => fetch("https://fun-coding-server.vercel.app/courses"),
-          element: <Courses></Courses>,
-        },
-        {
-          path: "/course/:id",
-          loader: ({ params }) =>
-            fetch(`https://fun-coding-server.vercel.app/courses/${params.id}`),
-          element: <CourseDetails></CourseDetails>,
-        },
-        { path: "/faq", element: <FrequintlyAQ></FrequintlyAQ> },
-        { path: "/blog", element: <Blogs></Blogs> },
-        { path: "/login", element: <Login></Login> },
-        { path: "/register", element: <Register></Register> },
-        { path: "/profile", element: <Profile></Profile> },
-      ],
-    },
-  ]);
-
+  
   return (
     <div data-theme={dark && 'dark'}>
-      <RouterProvider router={routes}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>;
     </div>
   );
 }

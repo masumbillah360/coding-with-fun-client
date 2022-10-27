@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import { ThemeContext } from "../../contexts/ThemeProvider/ThemeProvider";
+import {ThemeContext} from "../../contexts/ThemeProvider/ThemeProvider";
+import {CiLight, CiDark} from "react-icons/ci";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
@@ -19,7 +20,6 @@ const Header = () => {
   };
   const handleTheme = ()=>{
     setDark(!dark);
-    console.log(dark);
   }
   return (
     <div>
@@ -82,13 +82,18 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
+            <span onClick={handleTheme}
+            className = "mr-4 flex justify-center items-center ">
+              {dark ? <button>
+                <CiLight className="text-3xl"></CiLight>
+              </button> 
+              : 
+              <button>
+                <CiDark className="text-3xl"></CiDark>
+                </button>}
+            </span>
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
-              <label className="swap swap-rotate">
-                <button onClick={handleTheme} type="checkbox">
-                  {dark ? 'Light' : 'Dark'}
-                </button>
-              </label>
               {user?.uid ? (
                 <>
                   <li>
@@ -135,6 +140,11 @@ const Header = () => {
                 <Link to="/Blog" className="justify-between">
                   Blog
                 </Link>
+              </li>
+              <li className="">
+                <button onClick={handleTheme} type="checkbox">
+                  {dark ? "Light Mode" : "Dark MOde"}
+                </button>
               </li>
               <li>
                 <Link to="/login">
