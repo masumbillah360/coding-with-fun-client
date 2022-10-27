@@ -17,7 +17,7 @@ const Profile = () => {
                   alt="profilePhoto"
                 />
                 <h1 className="text-5xl font-bold">{user?.displayName}</h1>
-                <p className="mt-4">Email : {user?.email}</p>
+                <p className="mt-4">Email : {user?.email ? user?.email : "Login With GitHub"}</p>
                 <p className="mt-2">
                   Phone Number :{" "}
                   {user?.phoneNumber ? user?.phoneNumber : "Not Found"}
