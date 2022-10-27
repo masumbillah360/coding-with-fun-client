@@ -1,11 +1,25 @@
-# Getting Started with Create React App
+# Getting Started with Coding With Fun
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Live Site Link
+## Live site link-1 : [Coding With Fun](https://coding-with-fun-ae9b1.web.app/)
+## Live slite link-2 : [Coding With Fun](https://coding-with-fun-ae9b1.firebaseapp.com/)
+## Feature This site
+* Authentication System.
+* User can login with email, google and github.
+* Learn some coding by this site.
+* user can show his data for profile section.
+* Download tutorial pdf.
 
-In the project directory, you can run:
-
+## Technology used to create
+* ReactJs
+* react-router-dom
+* firebase
+* sweetalert2
+* tailwind css
+* daisy ui css component library
+* react-to-print for generating pdf.
 ### `yarn start`
 
 Runs the app in the development mode.\
