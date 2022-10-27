@@ -11,6 +11,7 @@ import Register from "../../components/Register/Register";
 import Profile from "../../components/Profile/Profile";
 import PrimiumServices from "../../components/PrimiumServices/PrimiumServices";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import About from "../../components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
       { path: "/profile", element: <Profile></Profile> },
+      { path: "/about", element: <About></About>},
       {
         path: "/premium/:courseId",
         loader: ({ params }) => fetch(`https://fun-coding-server.vercel.app/courses/${params.courseId}`),
