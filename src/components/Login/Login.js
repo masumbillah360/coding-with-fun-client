@@ -4,10 +4,13 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   const { providerLogin, setUser, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
@@ -16,17 +19,26 @@ const Login = () => {
   const handleGogoleLogin = () => {
     console.log("clicked");
     providerLogin(googleProvider)
-      .then((result) => setUser(result.user))
+      .then((result) => {
+        setUser(result.user);
+        navigate(from, {replace:true});
+      })
       .catch((err) => console.log(err));
   };
   const handleFacebookLogin = () => {
     providerLogin(facebookProvider)
-      .then((result) => setUser(result.user))
+      .then((result) => {
+        setUser(result.user);
+        navigate(from, {replace:true});
+      })
       .catch((err) => console.log(err));
   };
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
-      .then((result) => setUser(result.user))
+      .then((result) => {
+        setUser(result.user);
+        navigate(from, {replace:true});
+      })
       .catch((err) => console.log(err));
   };
 
@@ -36,7 +48,10 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     loginUser(email, password)
-    .then((result) => setUser(result.user))
+    .then((result) => {
+      setUser(result.user);
+      navigate(from, {replace:true});
+    })
     .catch((err) => console.log(err));
   }
   return (
