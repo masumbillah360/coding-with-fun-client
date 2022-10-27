@@ -86,7 +86,7 @@ const Login = () => {
                   </p>
                 </Link>
               </label>
-              {error && <span>{error}</span>}
+              {error && <span className="text-red-500">{error}</span>}
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
