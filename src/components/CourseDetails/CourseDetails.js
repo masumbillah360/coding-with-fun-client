@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
 
 const CourseDetails = () => {
+  const componentRef = useRef();
   const courseData = useLoaderData();
   const { name, id, description, picture, published_date} = courseData;
+   const handlePrint = useReactToPrint({
+     content: () => componentRef.current,
+   });
   return (
-    <div>
+    <div ref={componentRef}>
       <div className="flex justify-around items-center">
         <h1 className="text-4xl font-bold my-4">Topics : {name}</h1>
-        <button className="btn btn-primary btn-sm">Download PDF</button>
+        <button className="btn btn-primary" onClick={handlePrint}>Download PDF</button>
       </div>
       <img
         className="w-2/3 mx-auto rounded-lg"
         src={picture}
-        alt={name+"photo"}
+        alt={name + "photo"}
       />
       {description.map((des) => (
         <div className="px-2">
@@ -32,9 +37,9 @@ const CourseDetails = () => {
       ))}
       <p>Published Date : {published_date}</p>
       <div className="text-center my-5">
-      <Link to={`/premium/${id}`} className="btn btn-primary">
-        Get Primium Access
-      </Link>
+        <Link to={`/premium/${id}`} className="btn btn-primary">
+          Get Primium Access
+        </Link>
       </div>
     </div>
   );

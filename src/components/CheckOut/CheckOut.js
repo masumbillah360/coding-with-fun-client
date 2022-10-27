@@ -12,7 +12,7 @@ const CheckOut = ({user}) => {
       icon: "success",
       confirmButtonText: "go to Courses",
     });
-    // navigate('/profile');
+    navigate('/profile');
 
   }
     return (

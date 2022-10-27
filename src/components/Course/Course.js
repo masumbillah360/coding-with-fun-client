@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Course = ({course}) => {
-    const {name,id, balance, description, picture, published_date } = course;
+    const {name,id, description, picture } = course;
     return (
       <div>
         <div className="card bg-base-100 dark:bg-slate-600 shadow-xl">
