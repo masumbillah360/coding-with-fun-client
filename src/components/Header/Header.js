@@ -12,6 +12,7 @@ const Header = () => {
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
+        console.log("out");
         setUser({});
       })
       .catch((err) => {
@@ -147,9 +148,7 @@ const Header = () => {
                 </button>
               </li>
               <li>
-                <Link to="/login">
                   <button onClick={handleLogOut}>log out</button>
-                </Link>
               </li>
             </ul>
           </div>
