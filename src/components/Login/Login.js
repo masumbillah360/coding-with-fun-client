@@ -7,12 +7,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { providerLogin, setUser, loginUser, error, setError } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || '/';
-  const { providerLogin, setUser, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  console.log(error);
 
   const handleGogoleLogin = () => {
     console.log("clicked");
@@ -20,16 +21,18 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         navigate(from, {replace:true});
+        setError("")
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err?.message));
   };
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
       .then((result) => {
         setUser(result.user);
         navigate(from, {replace:true});
+        setError("");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err?.message));
   };
 
   const loginEmailPassword = (event)=>{
@@ -41,8 +44,9 @@ const Login = () => {
     .then((result) => {
       setUser(result.user);
       navigate(from, {replace:true});
+      setError("");
     })
-    .catch((err) => console.log(err));
+    .catch((err) => setError(err?.message));
   }
   return (
     <div>
@@ -82,6 +86,7 @@ const Login = () => {
                   </p>
                 </Link>
               </label>
+              {error && <span>{error}</span>}
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
@@ -105,7 +110,6 @@ const Login = () => {
               >
                 Login With Github
               </button>
-             
             </div>
           </div>
         </div>
