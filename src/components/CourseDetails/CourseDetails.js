@@ -1,11 +1,11 @@
 import React from "react";
-import { useLoaderData, Link } from "react-router-dom";
-
+import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
-  const { name, id, description, picture, published_date, balance } = courseData;
-  console.log(description)
+  const { name, id, description, picture, published_date, balance } =
+    courseData;
+  console.log(description);
   return (
     <div>
       <div className="flex justify-around items-center">
@@ -17,79 +17,27 @@ const CourseDetails = () => {
         src={picture}
         alt={name + "photo"}
       />
-      <div className="px-2">
-        <div className="my-6">
-          <h1 className="text-2xl my-2 font-bold">
-            {description.description_1.title}
-          </h1>
-          <p className="mb-4">{description.description_1.paragraph}</p>
-          {description.description_1.thumbnail && (
-            <img
-              className="w-2/3 rounded-lg mx-auto"
-              src={description.description_1.thumbnail}
-              alt="blogPhoto"
-            />
-          )}
+      {description.map((des) => (
+        <div className="px-2">
+          <div className="my-6">
+            <h1 className="text-2xl my-2 font-bold">{des?.title}</h1>
+            <p className="mb-4">{des?.paragraph}</p>
+            {des?.thumbnail && (
+              <img
+                className="w-2/3 rounded-lg mx-auto"
+                src={des?.thumbnail}
+                alt="blogPhoto"
+              />
+            )}
+          </div>
+          <Link to={`/premium/${id}`} className="btn btn-primary btn-sm mt-4">
+            Get Primium Access
+          </Link>
+          <p>
+            {published_date} {balance}
+          </p>
         </div>
-        <div className="my-6">
-          <h1 className="text-2xl my-2 font-bold">
-            {description.description_2.title}
-          </h1>
-          <p className="mb-4">{description.description_2.paragraph}</p>
-          {description.description_2.thumbnail && (
-            <img
-              className="w-2/3 rounded-lg mx-auto"
-              src={description.description_2.thumbnail}
-              alt="blogPhoto"
-            />
-          )}
-        </div>
-        <div className="my-6">
-          <h1 className="text-2xl my-2 font-bold">
-            {description.description_3.title}
-          </h1>
-          <p className="mb-4">{description.description_3.paragraph}</p>
-          {description.description_3.thumbnail && (
-            <img
-              className="w-2/3 rounded-lg mx-auto"
-              src={description.description_3.thumbnail}
-              alt="blogPhoto"
-            />
-          )}
-        </div>
-        <div className="my-6">
-          <h1 className="text-2xl my-2 font-bold">
-            {description.description_4.title}
-          </h1>
-          <p className="mb-4">{description.description_4.paragraph}</p>
-          {description.description_4.thumbnail && (
-            <img
-              className="w-2/3 rounded-lg mx-auto"
-              src={description.description_4.thumbnail}
-              alt="blogPhoto"
-            />
-          )}
-        </div>
-        <div className="my-6">
-          <h1 className="text-2xl my-2 font-bold">
-            {description.description_5.title}
-          </h1>
-          <p className="mb-4">{description.description_5.paragraph}</p>
-          {description.description_5.thumbnail && (
-            <img
-              className="w-2/3 rounded-lg mx-auto"
-              src={description.description_5.thumbnail}
-              alt="blogPhoto"
-            />
-          )}
-        </div>
-        <Link to={`/premium/${id}`} className="btn btn-primary btn-sm mt-4">
-          Get Primium Access
-        </Link>
-        <p>
-          {published_date} {balance}
-        </p>
-      </div>
+      ))}
     </div>
   );
 };

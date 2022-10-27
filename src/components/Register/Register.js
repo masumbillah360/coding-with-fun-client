@@ -108,17 +108,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold mb-4 text-primary">
               Register Now!
             </h1>
-            <div className="">
-              <button className="btn bg-red-600 mx-auto md:mx-0 block mb-3">
-                Sign Up With Google
-              </button>
-              <button className="btn block mb-3 mx-auto md:mx-0">
-                Sign Up With Github
-              </button>
-              <button className="btn bg-blue-500 block mx-auto md:mx-0">
-                Sign Up With FaceBook
-              </button>
-            </div>
+            <h4>Feel Free to Register Now. Enjoy & Learn Code Effectivly.</h4>
           </div>
         </div>
       </div>

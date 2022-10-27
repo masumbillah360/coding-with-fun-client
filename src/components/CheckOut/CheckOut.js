@@ -1,10 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 
-const CheckOut = () => {
+const CheckOut = ({user}) => {
+  const navigate = useNavigate();
   const handleCheckOut = (event)=>{
     event.preventDefault();
-    Swal.fire("Contratulations");
+    Swal.fire({
+      title: `Hey, ${user?.displayName} Congratulations !`,
+      text: "Connected With Us & Make Yourselef Pro Coder.",
+      icon: "success",
+      confirmButtonText: "go to Courses",
+    });
+    // navigate('/profile');
 
   }
     return (

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Course = ({course}) => {
     const {name,id, balance, description, picture, published_date } = course;
-    console.log(id);
-    // console.log(description);
     return (
       <div>
         <div className="card bg-base-100 dark:bg-slate-600 shadow-xl">
@@ -16,7 +14,7 @@ const Course = ({course}) => {
               {name}
               <div className="badge badge-secondary">NEW</div>
             </h2>
-            <p>{description.description_1.paragraph.length>100 ? description.description_1.paragraph.slice(0,100)+"..." : description.description_1.paragraph}</p>
+            <p>{description[0]?.paragraph.length>100 ? description[0]?.paragraph?.slice(0,100)+"..." : description[0]?.paragraph}</p>
             <div className="card-actions justify-end">
               <Link to={`/course/${id}`} className='btn btn-sm btn-primary'>Details</Link>
             </div>

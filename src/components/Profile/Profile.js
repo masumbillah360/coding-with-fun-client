@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Profile = () => {
@@ -8,7 +7,7 @@ const Profile = () => {
     const {displayName, email, phoneNumber,photoURL, uid, emailVerified, metadata} = user;
     return (
       <div>
-        <div className="hero min-h-screen">
+        <div className="hero">
           <div className="hero-content text-center">
             <div className="max-w-md">
             <img className='rounded-full mx-auto w-48 h-48' src={photoURL} alt="profilePhoto" />
@@ -18,7 +17,6 @@ const Profile = () => {
               <p className="mt-2">ID : {uid}</p>
               <p className="mt-2">Verified : {emailVerified?"Verified" : "No Verified"}</p>
               <p className="mt-2">Creation Time : {metadata?.creationTime}</p>
-              <Link to="/" className="btn btn-primary mt-3">Home</Link>
             </div>
           </div>
         </div>

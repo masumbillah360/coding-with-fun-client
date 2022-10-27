@@ -1,5 +1,4 @@
 import {
-  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
 } from "firebase/auth";
@@ -13,20 +12,11 @@ const Login = () => {
   const from = location?.state?.from?.pathname || '/';
   const { providerLogin, setUser, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
-  const facebookProvider = new FacebookAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
   const handleGogoleLogin = () => {
     console.log("clicked");
     providerLogin(googleProvider)
-      .then((result) => {
-        setUser(result.user);
-        navigate(from, {replace:true});
-      })
-      .catch((err) => console.log(err));
-  };
-  const handleFacebookLogin = () => {
-    providerLogin(facebookProvider)
       .then((result) => {
         setUser(result.user);
         navigate(from, {replace:true});
@@ -99,7 +89,7 @@ const Login = () => {
           </div>
 
           <div className="col-span-12 md:col-span-6 mr-auto order-1 sm:order-2">
-            <h1 className="text-5xl font-bold mb-4 text-primary">
+            <h1 className="text-5xl font-bold mb-4 dark:text-secondary text-primary">
               Please Login!
             </h1>
             <div className="">
@@ -115,12 +105,7 @@ const Login = () => {
               >
                 Login With Github
               </button>
-              <button
-                onClick={handleFacebookLogin}
-                className="btn bg-blue-500 block mx-auto md:mx-0"
-              >
-                Login With FaceBook
-              </button>
+             
             </div>
           </div>
         </div>
