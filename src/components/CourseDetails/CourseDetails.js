@@ -21,7 +21,7 @@ const CourseDetails = () => {
         alt={name + "photo"}
       />
       {description.map((des) => (
-        <div className="px-2">
+        <div key={des.id} className="px-2">
           <div className="my-6">
             <h1 className="text-2xl my-2 font-bold">{des?.title}</h1>
             <p className="mb-4">{des?.paragraph}</p>

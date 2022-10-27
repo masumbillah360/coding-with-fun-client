@@ -3,14 +3,14 @@ import React from 'react';
 const Blogs = () => {
     return (
       <div>
-        <div className="hero min-h-screen bg-base-100">
-          <div className="hero-content flex-col lg:flex-row">
+        <div className="hero bg-base-100 my-5">
+          <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/cors_principle.png"
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="w-full mx-auto col-span-8 md:col-span-3 rounded-lg md:shadow-2xl"
               alt="blogPhoto"
             />
-            <div>
+            <div className="col-span-8 md:col-span-5">
               <h1 className="text-3xl font-bold">what is cors?</h1>
               <p className="py-6">
                 CORS stands for cross-origin resource sharing. Cross-Origin
@@ -24,50 +24,50 @@ const Blogs = () => {
                 headers that indicate the HTTP method and headers that will be
                 used in the actual request.
               </p>
-              
             </div>
           </div>
         </div>
 
-        <div className="hero min-h-screen bg-base-100">
-          <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="bg-base-100 my-5">
+          <div className="grid grid-cols-8 justify-center items-center gap-5">
+            <div className="col-span-8 md:col-span-5">
+              <div>
+                <h1 className="text-3xl font-bold">
+                  Why are you using firebase? What other options do you have to
+                  implement authentication?
+                </h1>
+                <p className="py-6">
+                  Firebase Authentication provides backend services, easy-to-use
+                  SDKs, and ready-made UI libraries to authenticate users to
+                  your app. It supports authentication using passwords, phone
+                  numbers, popular federated identity providers like Google,
+                  Facebook and Twitter, and more.
+                </p>
+                <p>
+                  You can use Firebase Authentication to allow users to sign in
+                  to your app using one or more sign-in methods, including email
+                  address and password sign-in, and federated identity providers
+                  such as Google Sign-in and Facebook Login. This tutorial gets
+                  you started with Firebase Authentication by showing you how to
+                  add email address and password sign-in to your app.
+                </p>
+              </div>
+            </div>
             <img
               src="https://www.tristatetechnology.com/tristate-website/blog/wp-content/uploads/2019/06/firebase11.jpg"
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="w-full col-span-8 md:col-span-3 mx-auto rounded-lg shadow-2xl"
               alt="blogPhoto"
             />
-            <div>
-              <h1 className="text-3xl font-bold">
-                Why are you using firebase? What other options do you have to
-                implement authentication?
-              </h1>
-              <p className="py-6">
-                Firebase Authentication provides backend services, easy-to-use
-                SDKs, and ready-made UI libraries to authenticate users to your
-                app. It supports authentication using passwords, phone numbers,
-                popular federated identity providers like Google, Facebook and
-                Twitter, and more.
-              </p>
-              <p>
-                You can use Firebase Authentication to allow users to sign in to
-                your app using one or more sign-in methods, including email
-                address and password sign-in, and federated identity providers
-                such as Google Sign-in and Facebook Login. This tutorial gets
-                you started with Firebase Authentication by showing you how to
-                add email address and password sign-in to your app.
-              </p>
-              
-            </div>
           </div>
         </div>
-        <div className="hero min-h-screen bg-base-100">
-          <div className="hero-content flex-col lg:flex-row">
+        <div className="hero bg-base-100 my-5">
+          <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://global-uploads.webflow.com/618fa90c201104b94458e1fb/6329be0175bf4fa87f03a7b9_Protected-Routes-and-Authentication-How-to-create-Protected-Routes-in-React-App_OG-Image.jpg"
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="w-full col-span-8 md:col-span-3 mx-auto rounded-lg shadow-2xl"
               alt="blogPhoto"
             />
-            <div>
+            <div className="col-span-8 md:col-span-5">
               <h1 className="text-3xl font-bold">
                 How does the private route work?
               </h1>
@@ -83,19 +83,13 @@ const Blogs = () => {
                 is redirected to the /login page with the return url passed in
                 the location state property.
               </p>
-              
             </div>
           </div>
         </div>
 
-        <div className="hero min-h-screen bg-base-100">
-          <div className="hero-content flex-col lg:flex-row-reverse">
-            <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20210916203407/WorkingofNodejs1.png"
-              className="max-w-sm rounded-lg shadow-2xl"
-              alt="blogPhoto"
-            />
-            <div>
+        <div className="hero bg-base-100 my-5">
+          <div className="grid grid-cols-8 justify-center items-center gap-5">
+            <div className="col-span-8 md:col-span-5">
               <h1 className="text-3xl font-bold">
                 What is Node? How does Node work?
               </h1>
@@ -131,9 +125,12 @@ const Blogs = () => {
               </p>
               <li>Event loop</li>
               <li>Thread pool</li>
-
-              
             </div>
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20210916203407/WorkingofNodejs1.png"
+              className="w-full col-span-8 md:col-span-3 mx-auto rounded-lg shadow-2xl"
+              alt="blogPhoto"
+            />
           </div>
         </div>
       </div>

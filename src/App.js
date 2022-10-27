@@ -6,7 +6,7 @@ function App() {
   const {dark} = useContext(ThemeContext);
   
   return (
-    <div data-theme={dark && 'dark'}>
+    <div className="px-4" data-theme={dark && 'dark'}>
       <RouterProvider router={router}></RouterProvider>;
     </div>
   );
