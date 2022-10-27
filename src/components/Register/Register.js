@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createNewUser, setUser , updateUserProfile, error, setError } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,6 +18,14 @@ const Register = () => {
         handleUpdateUserProfile(name, photo);
         setUser(result.user);
         setError("");
+        navigate("/login");
+        Swal.fire({
+          title: `Congratulations !`,
+          text: "Please Login Now",
+          icon: "success",
+          confirmButtonText: "go to Courses",
+        });
+
         
       })
       .catch((err) => setError(err.message));
