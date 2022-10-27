@@ -11,9 +11,9 @@ const PrivateRoute = ({children}) => {
                 <h1>Loading....</h1>
                 <div
                   className="radial-progress text-primary"
-                  style={{ "--value": 100 }}
+                  style={{ "--value": 90 }}
                 >
-                  100%
+                  90%
                 </div>
                 <progress className="progress w-48 mt-3"></progress>
               </div>

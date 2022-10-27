@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const Register = () => {
   const navigate = useNavigate();
   const { createNewUser, setUser , updateUserProfile, error, setError } = useContext(AuthContext);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

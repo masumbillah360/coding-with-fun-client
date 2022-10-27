@@ -1,7 +1,4 @@
-import {
-  GithubAuthProvider,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
@@ -10,7 +7,7 @@ const Login = () => {
   const { providerLogin, setUser, loginUser, error, setError } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location?.state?.from?.pathname || '/';
+  const from = location?.state?.from?.pathname || "/";
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -18,8 +15,8 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         setUser(result.user);
-        navigate(from, {replace:true});
-        setError("")
+        navigate(from, { replace: true });
+        setError("");
       })
       .catch((err) => setError(err?.message));
   };
@@ -27,25 +24,25 @@ const Login = () => {
     providerLogin(githubProvider)
       .then((result) => {
         setUser(result.user);
-        navigate(from, {replace:true});
+        navigate(from, { replace: true });
         setError("");
       })
       .catch((err) => setError(err?.message));
   };
 
-  const loginEmailPassword = (event)=>{
+  const loginEmailPassword = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     loginUser(email, password)
-    .then((result) => {
-      setUser(result.user);
-      navigate(from, {replace:true});
-      setError("");
-    })
-    .catch((err) => setError(err?.message));
-  }
+      .then((result) => {
+        setUser(result.user);
+        navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((err) => setError(err?.message));
+  };
   return (
     <div>
       <div className="hero bg-base-100">

@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+//pdf create 
 import { useReactToPrint } from "react-to-print";
 
 const CourseDetails = () => {
-  const componentRef = useRef();
   const courseData = useLoaderData();
+  const componentRef = useRef();
   const { name, id, description, picture, published_date} = courseData;
+  // pfd maker funcution 
    const handlePrint = useReactToPrint({
      content: () => componentRef.current,
    });

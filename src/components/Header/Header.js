@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
+import { CiDark, CiLight } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import {ThemeContext} from "../../contexts/ThemeProvider/ThemeProvider";
-import {CiLight, CiDark} from "react-icons/ci";
 import logo from "../../assets/logo.png";
-import profile_pic  from "../../assets/profile_pic.jpg";
+import profile_pic from "../../assets/profile_pic.jpg";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { ThemeContext } from "../../contexts/ThemeProvider/ThemeProvider";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
-  const {dark, setDark} = useContext(ThemeContext);
+  const { dark, setDark } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -21,9 +21,9 @@ const Header = () => {
         setUser({});
       });
   };
-  const handleTheme = ()=>{
+  const handleTheme = () => {
     setDark(!dark);
-  }
+  };
   return (
     <div className="navbar">
       <div className="navbar-start">

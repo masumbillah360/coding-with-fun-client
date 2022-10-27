@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import CheckOut from '../CheckOut/CheckOut';
+//context import
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import CheckoutCourseInfo from '../CheckoutCourseInfo/CheckoutCourseInfo';
 
 const PrimiumServices = () => {
