@@ -3,9 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
-  const { name, id, description, picture, published_date, balance } =
-    courseData;
-  console.log(description);
+  const { name, id, description, picture, published_date} = courseData;
   return (
     <div>
       <div className="flex justify-around items-center">
@@ -15,7 +13,7 @@ const CourseDetails = () => {
       <img
         className="w-2/3 mx-auto rounded-lg"
         src={picture}
-        alt={name + "photo"}
+        alt={name+"photo"}
       />
       {description.map((des) => (
         <div className="px-2">
