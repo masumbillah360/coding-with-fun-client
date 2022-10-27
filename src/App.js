@@ -7,7 +7,7 @@ function App() {
   
   return (
     <div className="px-4" data-theme={dark && 'dark'}>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
