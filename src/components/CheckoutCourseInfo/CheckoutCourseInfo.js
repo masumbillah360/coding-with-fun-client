@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CheckoutCourseInfo = ({data}) => {
-    console.log(data);
     const {name, picture, id, balance, published_date} = data;
     return (
       <div>

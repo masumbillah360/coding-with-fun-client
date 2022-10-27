@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createNewUser, setUser , updateUserProfile } = useContext(AuthContext);
+  const { createNewUser, setUser , updateUserProfile, error, setError } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,9 +15,10 @@ const Register = () => {
       .then((result) => {
         handleUpdateUserProfile(name, photo);
         setUser(result.user);
+        setError("");
         
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err.message));
   };
 
   const handleUpdateUserProfile =(name, photo)=> {
@@ -26,10 +27,8 @@ const Register = () => {
       photoURL: photo
     }
       updateUserProfile(profile)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch(err=>console.log(err));
+      .then((result) => {})
+      .catch(err=>setError(err.message));
    }
   return (
     <div>
@@ -94,6 +93,7 @@ const Register = () => {
                   </p>
                 </Link>
               </label>
+              {error && <span className="text-red-400">{error}</span> }
               <div className="form-control mt-6">
                 <input
                   type="submit"

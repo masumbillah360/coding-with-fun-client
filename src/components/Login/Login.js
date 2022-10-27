@@ -13,10 +13,8 @@ const Login = () => {
   const from = location?.state?.from?.pathname || '/';
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  console.log(error);
 
   const handleGogoleLogin = () => {
-    console.log("clicked");
     providerLogin(googleProvider)
       .then((result) => {
         setUser(result.user);

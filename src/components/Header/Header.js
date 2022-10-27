@@ -13,11 +13,10 @@ const Header = () => {
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
-        console.log("out");
         setUser({});
       })
       .catch((err) => {
-        console.log(err);
+        setUser({});
       });
   };
   const handleTheme = ()=>{
