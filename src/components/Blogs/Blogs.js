@@ -3,7 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
       <div>
-        <div className="hero bg-base-100 my-5">
+        <div className="hero bg-base-100 my-12">
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/cors_principle.png"
@@ -28,7 +28,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="bg-base-100 my-5">
+        <div className="bg-base-100 mt-14">
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <div className="col-span-8 md:col-span-5">
               <div>
@@ -60,7 +60,7 @@ const Blogs = () => {
             />
           </div>
         </div>
-        <div className="hero bg-base-100 my-5">
+        <div className="hero bg-base-100 mt-14">
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://global-uploads.webflow.com/618fa90c201104b94458e1fb/6329be0175bf4fa87f03a7b9_Protected-Routes-and-Authentication-How-to-create-Protected-Routes-in-React-App_OG-Image.jpg"
@@ -87,7 +87,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="hero bg-base-100 my-5">
+        <div className="hero bg-base-100 mt-14">
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <div className="col-span-8 md:col-span-5">
               <h1 className="text-3xl font-bold">

@@ -49,12 +49,12 @@ const Register = () => {
             <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Full Name</span>
                 </label>
                 <input
                   name="name"
                   type="text"
-                  placeholder="Name"
+                  placeholder="Full Name"
                   required
                   className="input input-bordered"
                 />
