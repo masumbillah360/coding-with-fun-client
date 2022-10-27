@@ -12,7 +12,7 @@ const Blogs = () => {
               alt="blogPhoto"
             />
             <div>
-              <h1 className="text-5xl font-bold">what is cors?</h1>
+              <h1 className="text-3xl font-bold">what is cors?</h1>
               <p className="py-6">
                 CORS stands for cross-origin resource sharing. Cross-Origin
                 Resource Sharing (CORS) is an HTTP-header based mechanism that
@@ -25,7 +25,7 @@ const Blogs = () => {
                 headers that indicate the HTTP method and headers that will be
                 used in the actual request.
               </p>
-              <Link to="/premium" className="btn btn-primary btn-sm mt-4">Get Primium Access</Link>
+              
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Blogs = () => {
               alt="blogPhoto"
             />
             <div>
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-3xl font-bold">
                 Why are you using firebase? What other options do you have to
                 implement authentication?
               </h1>
@@ -57,7 +57,7 @@ const Blogs = () => {
                 you started with Firebase Authentication by showing you how to
                 add email address and password sign-in to your app.
               </p>
-              <Link to="/premium" className="btn btn-primary btn-sm mt-4">Get Primium Access</Link>
+              
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@ const Blogs = () => {
               alt="blogPhoto"
             />
             <div>
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-3xl font-bold">
                 How does the private route work?
               </h1>
               <p className="py-6">
@@ -84,7 +84,7 @@ const Blogs = () => {
                 is redirected to the /login page with the return url passed in
                 the location state property.
               </p>
-              <Link to="/premium" className="btn btn-primary btn-sm mt-4">Get Primium Access</Link>
+              
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@ const Blogs = () => {
               alt="blogPhoto"
             />
             <div>
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-3xl font-bold">
                 What is Node? How does Node work?
               </h1>
               <p className="py-6">
@@ -133,7 +133,7 @@ const Blogs = () => {
               <li>Event loop</li>
               <li>Thread pool</li>
 
-              <Link to="/premium" className="btn btn-primary btn-sm mt-4">Get Primium Access</Link>
+              
             </div>
           </div>
         </div>

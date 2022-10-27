@@ -10,7 +10,7 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location?.state?.from?.pathname ||'/';
+  const from = location?.state?.from?.pathname || '/';
   const { providerLogin, setUser, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
@@ -56,7 +56,7 @@ const Login = () => {
   }
   return (
     <div>
-      <div className="hero min-h-screen bg-base-100">
+      <div className="hero bg-base-100">
         <div className="hero-content grid grid-cols-12 md:gap-6 lg:gap-12">
           <div className="card shadow-2xl bg-base-100 col-span-12 md:col-span-6 ml-auto order-2 sm:order-1">
             <form onSubmit={loginEmailPassword} className="card-body">

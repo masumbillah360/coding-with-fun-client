@@ -4,7 +4,7 @@ import { useLoaderData, Link } from "react-router-dom";
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
-  const { name, description, picture, published_date, balance } = courseData;
+  const { name, id, description, picture, published_date, balance } = courseData;
   console.log(description)
   return (
     <div>
@@ -83,7 +83,7 @@ const CourseDetails = () => {
             />
           )}
         </div>
-        <Link to="/premium" className="btn btn-primary btn-sm mt-4">
+        <Link to={`/premium/${id}`} className="btn btn-primary btn-sm mt-4">
           Get Primium Access
         </Link>
         <p>

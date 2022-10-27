@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import {ThemeContext} from "../../contexts/ThemeProvider/ThemeProvider";
 import {CiLight, CiDark} from "react-icons/ci";
+import profile_pic  from "../../assets/profile_pic.jpg";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
@@ -83,16 +84,20 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-            <span onClick={handleTheme}
-            className = "mr-4 flex justify-center items-center ">
-              {dark ? <button>
+          <span
+            onClick={handleTheme}
+            className="mr-4 flex justify-center items-center "
+          >
+            {dark ? (
+              <button>
                 <CiLight className="text-3xl"></CiLight>
-              </button> 
-              : 
+              </button>
+            ) : (
               <button>
                 <CiDark className="text-3xl"></CiDark>
-                </button>}
-            </span>
+              </button>
+            )}
+          </span>
           <div className="hidden lg:block">
             <ul className="menu menu-horizontal p-0">
               {user?.uid ? (
@@ -116,11 +121,19 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img
-                  src={user?.photoURL}
-                  alt="profilePhoto"
-                  title={user?.displayName}
-                />
+                {user?.photoURL ? (
+                  <img
+                    src={user?.photoURL}
+                    alt="profilePhoto"
+                    title={user?.displayName}
+                  />
+                ) : (
+                  <img
+                    src={profile_pic}
+                    alt="profilePhoto"
+                    title={user?.displayName}
+                  />
+                )}
               </div>
             </label>
             <ul
@@ -148,7 +161,7 @@ const Header = () => {
                 </button>
               </li>
               <li>
-                  <button onClick={handleLogOut}>log out</button>
+                <button onClick={handleLogOut}>log out</button>
               </li>
             </ul>
           </div>

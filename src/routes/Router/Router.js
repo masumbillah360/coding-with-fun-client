@@ -36,7 +36,8 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register></Register> },
       { path: "/profile", element: <Profile></Profile> },
       {
-        path: "/premium",
+        path: "/premium/:courseId",
+        loader: ({ params }) => fetch(`https://fun-coding-server.vercel.app/courses/${params.courseId}`),
         element: (
           <PrivateRoute>
             <PrimiumServices></PrimiumServices>
