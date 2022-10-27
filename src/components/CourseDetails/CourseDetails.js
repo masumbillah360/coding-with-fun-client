@@ -30,14 +30,14 @@ const CourseDetails = () => {
               />
             )}
           </div>
-          <Link to={`/premium/${id}`} className="btn btn-primary btn-sm mt-4">
-            Get Primium Access
-          </Link>
-          <p>
-            {published_date} {balance}
-          </p>
         </div>
       ))}
+      <p>Published Date : {published_date}</p>
+      <div className="text-center my-5">
+      <Link to={`/premium/${id}`} className="btn btn-primary">
+        Get Primium Access
+      </Link>
+      </div>
     </div>
   );
 };
