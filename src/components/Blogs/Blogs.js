@@ -7,10 +7,10 @@ const Blogs = () => {
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/cors_principle.png"
-              className="w-full mx-auto col-span-8 md:col-span-3 rounded-lg md:shadow-2xl"
+              className="w-full mx-auto col-span-8 md:col-span-3 rounded-lg order-2 md:shadow-2xl md:order-1"
               alt="blogPhoto"
             />
-            <div className="col-span-8 md:col-span-5">
+            <div className="col-span-8 md:col-span-5 order-1 md:order-2">
               <h1 className="text-3xl font-bold">what is cors?</h1>
               <p className="py-6">
                 CORS stands for cross-origin resource sharing. Cross-Origin
@@ -64,10 +64,10 @@ const Blogs = () => {
           <div className="grid grid-cols-8 justify-center items-center gap-5">
             <img
               src="https://global-uploads.webflow.com/618fa90c201104b94458e1fb/6329be0175bf4fa87f03a7b9_Protected-Routes-and-Authentication-How-to-create-Protected-Routes-in-React-App_OG-Image.jpg"
-              className="w-full col-span-8 md:col-span-3 mx-auto rounded-lg shadow-2xl"
+              className="w-full col-span-8 md:col-span-3 mx-auto rounded-lg shadow-2xl order-2 md:order-1"
               alt="blogPhoto"
             />
-            <div className="col-span-8 md:col-span-5">
+            <div className="col-span-8 md:col-span-5 order-1 md:order-2">
               <h1 className="text-3xl font-bold">
                 How does the private route work?
               </h1>
