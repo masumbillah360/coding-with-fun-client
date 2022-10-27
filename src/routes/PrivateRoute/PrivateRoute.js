@@ -4,7 +4,21 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const PrivateRoute = ({children}) => {
     const location = useLocation();
-    const {user } = useContext(AuthContext);
+    const {user, loading } = useContext(AuthContext);
+    if (loading) {
+            return (
+              <div className="min-h-screen flex flex-col justify-center items-center">
+                <h1>Loading....</h1>
+                <div
+                  className="radial-progress text-primary"
+                  style={{ "--value": 100 }}
+                >
+                  100%
+                </div>
+                <progress className="progress w-48 mt-3"></progress>
+              </div>
+            );
+        }
     if (!user?.uid) {
         return <Navigate to="/login" state={{from: location}} replace></Navigate>;
     }
