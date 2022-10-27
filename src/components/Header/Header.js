@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import {ThemeContext} from "../../contexts/ThemeProvider/ThemeProvider";
 import {CiLight, CiDark} from "react-icons/ci";
+import logo from "../../assets/logo.png";
 import profile_pic  from "../../assets/profile_pic.jpg";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useContext(AuthContext);
   const {dark, setDark} = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
         setUser({});
+        navigate("/");
       })
       .catch((err) => {
         setUser({});
