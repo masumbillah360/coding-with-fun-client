@@ -11,9 +11,9 @@ const CourseDetails = () => {
    });
   return (
     <div ref={componentRef}>
-      <div className="flex justify-around items-center">
+      <div className="flex flex-col-reverse md:flex-row justify-around items-center">
         <h1 className="text-4xl font-bold my-4">Topics : {name}</h1>
-        <button className="btn btn-primary" onClick={handlePrint}>Download PDF</button>
+        <button className="btn btn-primary btn-xs" onClick={handlePrint}>Download PDF</button>
       </div>
       <img
         className="w-2/3 mx-auto rounded-lg"
