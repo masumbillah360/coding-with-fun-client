@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createNewUser, setUser , updateUserProfile, error, setError } = useContext(AuthContext);
-  
+  const { createNewUser, setUser, updateUserProfile, error, setError } =
+    useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -26,21 +27,19 @@ const Register = () => {
           icon: "success",
           confirmButtonText: "go to Courses",
         });
-
-        
       })
       .catch((err) => setError(err.message));
   };
 
-  const handleUpdateUserProfile =(name, photo)=> {
+  const handleUpdateUserProfile = (name, photo) => {
     const profile = {
       displayName: name,
-      photoURL: photo
-    }
-      updateUserProfile(profile)
+      photoURL: photo,
+    };
+    updateUserProfile(profile)
       .then((result) => {})
-      .catch(err=>setError(err.message));
-   }
+      .catch((err) => setError(err.message));
+  };
   return (
     <div>
       <div className="hero bg-base-100">
@@ -104,7 +103,7 @@ const Register = () => {
                   </p>
                 </Link>
               </label>
-              {error && <span className="text-red-400">{error}</span> }
+              {error && <span className="text-red-400">{error}</span>}
               <div className="form-control mt-6">
                 <input
                   type="submit"

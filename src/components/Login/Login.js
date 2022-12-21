@@ -1,10 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { providerLogin, setUser, loginUser, error, setError } = useContext(AuthContext);
+  const { providerLogin, setUser, loginUser, error, setError } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
@@ -15,6 +17,7 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         setUser(result.user);
+        Swal.fire("Successfully Logged In");
         navigate(from, { replace: true });
         setError("");
       })
@@ -24,6 +27,7 @@ const Login = () => {
     providerLogin(githubProvider)
       .then((result) => {
         setUser(result.user);
+        Swal.fire("Successfully Logged In");
         navigate(from, { replace: true });
         setError("");
       })
@@ -38,6 +42,7 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         setUser(result.user);
+        Swal.fire("Successfully Logged In");
         navigate(from, { replace: true });
         setError("");
       })
